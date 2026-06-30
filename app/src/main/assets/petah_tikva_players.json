@@ -1,0 +1,124 @@
+{
+  "club": "הפועל פתח תקווה",
+  "clubEn": "Hapoel Petah Tikva",
+  "season": "2025/26",
+  "note": "Snapshot/sample roster used as offline fallback. Refreshed from chess.org.il (Player.aspx) when the device is online.",
+  "players": [
+    {
+      "playerId": 24015, "name": "דניאל כהן", "nameEn": "Daniel Cohen", "gender": "M",
+      "birthYear": 1996, "title": "FM", "fideId": "2812345",
+      "ratingStandard": 2418, "ratingRapid": 2375, "ratingBlitz": 2330,
+      "games": [
+        {"date": "2026-06-24", "event": "ליגה לאומית", "opponent": "מיכאל לוין", "color": "W", "result": "1-0"},
+        {"date": "2026-06-27", "event": "ליגה לאומית", "opponent": "אבי שטרן", "color": "B", "result": "1/2-1/2"}
+      ]
+    },
+    {
+      "playerId": 22475, "name": "יונתן בר-לב", "nameEn": "Yonatan Bar-Lev", "gender": "M",
+      "birthYear": 2001, "title": "IM", "fideId": "2809911",
+      "ratingStandard": 2502, "ratingRapid": 2460, "ratingBlitz": 2441,
+      "games": [
+        {"date": "2026-06-25", "event": "גביע המדינה", "opponent": "רון פלד", "color": "W", "result": "1-0"},
+        {"date": "2026-06-28", "event": "גביע המדינה", "opponent": "גיא גוב", "color": "B", "result": "0-1"}
+      ]
+    },
+    {
+      "playerId": 19887, "name": "נועה פרידמן", "nameEn": "Noa Friedman", "gender": "F",
+      "birthYear": 2004, "title": "WFM", "fideId": "2828877",
+      "ratingStandard": 2156, "ratingRapid": 2110, "ratingBlitz": 2095,
+      "games": [
+        {"date": "2026-06-26", "event": "אליפות נשים", "opponent": "מאיה גורביץ'", "color": "W", "result": "1-0"}
+      ]
+    },
+    {
+      "playerId": 30221, "name": "איתי רוזן", "nameEn": "Itai Rosen", "gender": "M",
+      "birthYear": 2008, "title": "", "fideId": "2841200",
+      "ratingStandard": 1884, "ratingRapid": 1920, "ratingBlitz": 1850,
+      "games": [
+        {"date": "2026-06-24", "event": "ליגה לאומית", "opponent": "עומר כץ", "color": "B", "result": "1/2-1/2"},
+        {"date": "2026-06-28", "event": "טורניר פתוח פ\"ת", "opponent": "נדב אלון", "color": "W", "result": "1-0"}
+      ]
+    },
+    {
+      "playerId": 31540, "name": "שירה מזרחי", "nameEn": "Shira Mizrahi", "gender": "F",
+      "birthYear": 2010, "title": "", "fideId": "2845566",
+      "ratingStandard": 1642, "ratingRapid": 1700, "ratingBlitz": 1590,
+      "games": [
+        {"date": "2026-06-27", "event": "ליגת נוער", "opponent": "תמר ביטון", "color": "W", "result": "1-0"}
+      ]
+    },
+    {
+      "playerId": 18002, "name": "מיכאל וינשטיין", "nameEn": "Michael Weinstein", "gender": "M",
+      "birthYear": 1988, "title": "GM", "fideId": "2801122",
+      "ratingStandard": 2604, "ratingRapid": 2570, "ratingBlitz": 2588,
+      "games": [
+        {"date": "2026-06-25", "event": "ליגה לאומית", "opponent": "אלכסיי סמירין", "color": "W", "result": "1-0"},
+        {"date": "2026-06-29", "event": "ליגה לאומית", "opponent": "תמיר נבון", "color": "B", "result": "1-0"}
+      ]
+    },
+    {
+      "playerId": 27713, "name": "עידן ספיר", "nameEn": "Idan Sapir", "gender": "M",
+      "birthYear": 1999, "title": "FM", "fideId": "2819033",
+      "ratingStandard": 2301, "ratingRapid": 2280, "ratingBlitz": 2260,
+      "games": [
+        {"date": "2026-06-26", "event": "גביע המדינה", "opponent": "דור גולן", "color": "B", "result": "0-1"}
+      ]
+    },
+    {
+      "playerId": 29980, "name": "תמר ביטון", "nameEn": "Tamar Biton", "gender": "F",
+      "birthYear": 2009, "title": "", "fideId": "2843311",
+      "ratingStandard": 1715, "ratingRapid": 1680, "ratingBlitz": 1640,
+      "games": [
+        {"date": "2026-06-27", "event": "ליגת נוער", "opponent": "שירה מזרחי", "color": "B", "result": "0-1"}
+      ]
+    },
+    {
+      "playerId": 20334, "name": "רון פלד", "nameEn": "Ron Peled", "gender": "M",
+      "birthYear": 1993, "title": "IM", "fideId": "2806677",
+      "ratingStandard": 2455, "ratingRapid": 2400, "ratingBlitz": 2412,
+      "games": [
+        {"date": "2026-06-25", "event": "גביע המדינה", "opponent": "יונתן בר-לב", "color": "B", "result": "0-1"}
+      ]
+    },
+    {
+      "playerId": 33110, "name": "אלון רגב", "nameEn": "Alon Regev", "gender": "M",
+      "birthYear": 2012, "title": "", "fideId": "2849988",
+      "ratingStandard": 1402, "ratingRapid": 1450, "ratingBlitz": 1380,
+      "games": [
+        {"date": "2026-06-28", "event": "טורניר ילדים פ\"ת", "opponent": "יהונתן מור", "color": "W", "result": "1/2-1/2"}
+      ]
+    },
+    {
+      "playerId": 26641, "name": "מאיה גורביץ'", "nameEn": "Maya Gurevich", "gender": "F",
+      "birthYear": 2003, "title": "WIM", "fideId": "2816644",
+      "ratingStandard": 2240, "ratingRapid": 2205, "ratingBlitz": 2188,
+      "games": [
+        {"date": "2026-06-26", "event": "אליפות נשים", "opponent": "נועה פרידמן", "color": "B", "result": "0-1"}
+      ]
+    },
+    {
+      "playerId": 28455, "name": "נדב אלון", "nameEn": "Nadav Alon", "gender": "M",
+      "birthYear": 2006, "title": "CM", "fideId": "2823377",
+      "ratingStandard": 2012, "ratingRapid": 2040, "ratingBlitz": 1980,
+      "games": [
+        {"date": "2026-06-28", "event": "טורניר פתוח פ\"ת", "opponent": "איתי רוזן", "color": "B", "result": "0-1"}
+      ]
+    },
+    {
+      "playerId": 21190, "name": "עומר כץ", "nameEn": "Omer Katz", "gender": "M",
+      "birthYear": 1997, "title": "FM", "fideId": "2810455",
+      "ratingStandard": 2347, "ratingRapid": 2300, "ratingBlitz": 2321,
+      "games": [
+        {"date": "2026-06-24", "event": "ליגה לאומית", "opponent": "איתי רוזן", "color": "W", "result": "1/2-1/2"}
+      ]
+    },
+    {
+      "playerId": 34002, "name": "יעל דהן", "nameEn": "Yael Dahan", "gender": "F",
+      "birthYear": 2011, "title": "", "fideId": "2851200",
+      "ratingStandard": 1288, "ratingRapid": 1330, "ratingBlitz": 1250,
+      "games": [
+        {"date": "2026-06-29", "event": "טורניר ילדים פ\"ת", "opponent": "אלון רגב", "color": "B", "result": "0-1"}
+      ]
+    }
+  ]
+}

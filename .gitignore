@@ -1,0 +1,21 @@
+# Android / Gradle
+.gradle/
+build/
+app/build/
+local.properties
+*.apk
+*.aab
+captures/
+.externalNativeBuild/
+.cxx/
+
+# IDE
+.idea/
+*.iml
+.DS_Store
+
+# Design mock tooling
+design-mock/node_modules/
+design-mock/_rendered.html
+design-mock/debug.mjs
+design-mock/package-lock.json

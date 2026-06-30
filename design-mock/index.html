@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI',Arial,sans-serif; }
+  body { background:#070A10; padding:46px 40px 40px; }
+  .stage { display:flex; gap:34px; align-items:flex-start; justify-content:center; }
+  .title-bar { text-align:center; color:#fff; margin-bottom:38px; }
+  .title-bar h1 { font-size:30px; letter-spacing:.5px; }
+  .title-bar p { color:#3DDC97; font-size:15px; margin-top:6px; }
+  .phone {
+    width:300px; height:640px; background:linear-gradient(180deg,#0E1117,#121A2A,#0E1117);
+    border-radius:34px; border:9px solid #1c2330; position:relative; overflow:hidden;
+    box-shadow:0 24px 60px rgba(0,0,0,.6);
+  }
+  .notch { position:absolute; top:8px; left:50%; transform:translateX(-50%); width:120px; height:20px; background:#000; border-radius:0 0 14px 14px; z-index:5;}
+  .screen { position:absolute; inset:0; padding:30px 16px 64px; overflow:hidden; }
+  .label { position:absolute; bottom:-30px; left:0; right:0; text-align:center; color:#8A94A6; font-size:13px; }
+  .wrap { position:relative; }
+  /* bottom nav */
+  .nav { position:absolute; bottom:0; left:0; right:0; height:54px; background:#171C26; display:flex; }
+  .nav div { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:3px; color:#9AA4B6; font-size:10px;}
+  .nav div.on { color:#3DDC97; }
+  .nav .ic { width:18px; height:18px; border:1.6px solid currentColor; border-radius:4px; }
+  .nav .ic.pk { border-radius:2px; }
+  .nav .ic.sq { border-radius:50%; border:none; box-shadow:inset 0 0 0 1.6px currentColor; }
+
+  h2.head { color:#F4F6FB; font-size:20px; font-weight:700; margin-bottom:12px; }
+  .muted { color:#9AA4B6; }
+  /* cards */
+  .grid { display:flex; flex-wrap:wrap; gap:10px; }
+  .card { width:calc(50% - 5px); border-radius:14px; padding:10px; }
+  .card.bronze { background:linear-gradient(135deg,#3A2A20,#5A4030,#1C1410); border:2px solid #C9824E;}
+  .card.silver { background:linear-gradient(135deg,#2C333F,#454F60,#161A22); border:2px solid #C0C7D1;}
+  .card.gold   { background:linear-gradient(135deg,#4A3A12,#7A5E18,#1E1808); border:2px solid #F2B705;}
+  .card.special{ background:linear-gradient(135deg,#3A2459,#6A3FB0,#16101F); border:2px solid #7C4DFF;}
+  .card .toprow { display:flex; align-items:center; }
+  .rating { background:rgba(0,0,0,.75); border-radius:8px; padding:1px 9px; font-size:20px; font-weight:800; }
+  .tier { margin-inline-start:auto; font-size:10px; font-weight:700; color:#9AA4B6; }
+  .av { width:64px; height:64px; margin:6px auto 0; display:block; }
+  .nm { color:#F4F6FB; font-size:13px; font-weight:700; text-align:center; margin-top:6px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+  .sub { color:#9AA4B6; font-size:10px; text-align:center; }
+  .brk { color:#8A94A6; font-size:9px; text-align:center; }
+  .bronze .rating{color:#C9824E} .silver .rating{color:#C0C7D1} .gold .rating{color:#F2B705} .special .rating{color:#B388FF}
+
+  /* login */
+  .crest { width:74px; height:74px; display:block; margin:18px auto 0; }
+  .applogo { text-align:center; color:#F4F6FB; font-size:22px; font-weight:700; margin-top:14px;}
+  .tag { text-align:center; color:#3DDC97; font-size:13px; margin-top:3px;}
+  .field { background:#1E2533; border:1px solid #2E3850; border-radius:12px; height:46px; margin-top:12px; display:flex; align-items:center; padding:0 14px; color:#9AA4B6; font-size:14px;}
+  .btn { height:48px; border-radius:13px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:15px; margin-top:16px;}
+  .btn.primary{ background:linear-gradient(90deg,#2BB07A,#3DDC97); color:#06210f;}
+  .btn.outline{ border:1.5px solid #3DDC97; color:#3DDC97; height:44px; margin-top:10px; font-weight:600;}
+
+  /* packs */
+  .stat { background:#171C26; border-radius:16px; padding:15px; display:flex; align-items:center; gap:12px; margin-bottom:16px;}
+  .stat .big { font-size:24px; font-weight:800; color:#fff;}
+  .packhero { background:linear-gradient(135deg,#3A2459,#6A3FB0,#16101F); border:2px solid #7C4DFF; border-radius:18px; padding:22px; text-align:center;}
+  .packhero .emoji{ font-size:54px;}
+  .packhero h3{ color:#fff; margin-top:6px; font-size:18px;}
+  .packhero p{ color:#c9b8ec; font-size:12px; margin-top:3px;}
+
+  /* squad */
+  .summary{ background:#171C26; border-radius:16px; padding:14px; display:flex; align-items:center; margin-bottom:14px;}
+  .summary .avg{ font-size:28px; font-weight:800; color:#3DDC97;}
+  .summary .cnt{ margin-inline-start:auto; color:#F4F6FB; font-size:14px;}
+  .slotrow{ display:flex; gap:8px; margin-bottom:8px;}
+  .slot{ flex:1; }
+  .scard{ border-radius:12px; padding:7px; text-align:center;}
+  .scard .r{ background:rgba(0,0,0,.75); border-radius:7px; padding:0 6px; font-size:13px; font-weight:800; display:inline-block; float:inline-start;}
+  .scard .av{ width:46px; height:46px; margin:2px auto 0;}
+  .scard .nm{ font-size:11px;}
+  .empty{ border:1.5px dashed #33445e; border-radius:12px; height:118px; display:flex; flex-direction:column; align-items:center; justify-content:center; color:#5b6b82;}
+  .empty .plus{ font-size:30px;}
+
+  /* detail */
+  .dcard{ border-radius:18px; padding:16px; }
+  .dtop{ display:flex; align-items:center;}
+  .dtop .rating{ font-size:30px;}
+  .dav{ width:104px; height:104px; display:block; margin:8px auto 0;}
+  .dname{ text-align:center; color:#fff; font-size:20px; font-weight:800; margin-top:6px;}
+  .dclub{ text-align:center; color:#3DDC97; font-size:12px;}
+  .stats4{ display:flex; margin-top:14px;}
+  .stats4 div{ flex:1; text-align:center;}
+  .stats4 .v{ color:#fff; font-weight:800; font-size:16px;}
+  .stats4 .l{ color:#9AA4B6; font-size:10px;}
+  .gh{ color:#fff; font-size:16px; font-weight:700; margin:16px 0 8px;}
+  .game{ background:#171C26; border-radius:12px; padding:11px 13px; display:flex; align-items:center; margin-bottom:7px;}
+  .game .col{ flex:1;}
+  .game .op{ color:#F4F6FB; font-weight:700; font-size:13px;}
+  .game .ev{ color:#9AA4B6; font-size:11px;}
+  .game .dt{ color:#7C8699; font-size:10px;}
+  .game .res{ font-size:17px; font-weight:800;}
+  .win{color:#43c46d} .loss{color:#e25b5b} .draw{color:#9AA4B6}
+</style>
+</head>
+<body>
+  <div class="title-bar">
+    <h1>♞ שחמט פנטזי — הפועל פתח תקווה</h1>
+    <p>Fantasy Chess Israel · נתונים מאתר האיגוד הישראלי לשחמט · בהשראת Sorare</p>
+  </div>
+  <div class="stage" id="stage"></div>
+
+<script>
+const players = JSON_PLACEHOLDER;
+function cardRating(r){ let v=Math.round((r-1000)/1800*99+1); return Math.max(1,Math.min(100,v)); }
+function tier(c){ return c>=90?'special':c>=75?'gold':c>=60?'silver':'bronze'; }
+function avatar(g){
+  const skin='#F2C9A0', hair=g==='F'?'#5A3A24':'#3A2A1A', shirt=g==='F'?'#FF6FB5':'#3DDC97', bg=g==='F'?'#3A2348':'#22304A';
+  const longHair = g==='F' ? `<path fill="#5A3A24" d="M30,30 C30,12 46,8 60,8 C74,8 90,12 90,30 L92,110 L80,110 L80,50 L40,50 L40,110 L28,110 Z"/>`:'';
+  const fringe = g==='F'
+    ? `<path fill="${hair}" d="M38,36 C38,16 53,12 60,12 C67,12 82,16 82,36 C82,28 73,26 60,26 C47,26 38,28 38,36 Z"/>`
+    : `<path fill="${hair}" d="M37,34 C37,16 52,10 60,10 C68,10 83,16 83,34 C83,28 74,24 60,24 C46,24 37,28 37,34 Z"/>`;
+  const hy = g==='F'?36:34, ey=g==='F'?38:36, sy=g==='F'?50:48;
+  return `<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="60" cy="60" r="60" fill="${bg}"/>
+    ${longHair}
+    <path fill="${shirt}" d="M20,120 C20,92 38,80 60,80 C82,80 100,92 100,120 Z"/>
+    <rect x="50" y="72" width="20" height="14" fill="#E8B894"/>
+    <ellipse cx="60" cy="${hy}" rx="22" ry="26" fill="${skin}"/>
+    ${fringe}
+    <circle cx="50" cy="${ey}" r="3" fill="#2A2A2A"/><circle cx="70" cy="${ey}" r="3" fill="#2A2A2A"/>
+    <path d="M52,${sy} Q60,${sy+6} 68,${sy}" stroke="#9B5B3A" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </svg>`;
+}
+function card(p){
+  const c=cardRating(p.ratingStandard), t=tier(c);
+  return `<div class="card ${t}">
+    <div class="toprow"><span class="rating">${c}</span><span class="tier">${t.toUpperCase()}</span></div>
+    <div class="av">${avatar(p.gender)}</div>
+    <div class="nm">${p.name}</div>
+    <div class="sub">${p.title?p.title+' · ':''}תקני ${p.ratingStandard}</div>
+    <div class="brk">מהיר ${p.ratingRapid} · בזק ${p.ratingBlitz}</div>
+  </div>`;
+}
+const crest = `<svg class="crest" viewBox="0 0 48 48"><path fill="#E2231A" d="M24,3 L43,9 L43,26 C43,38 34,44 24,46 C14,44 5,38 5,26 L5,9 Z"/><path fill="#fff" d="M24,7 L39,12 L39,26 C39,35 32,40 24,42 C16,40 9,35 9,26 L9,12 Z"/><path fill="#E2231A" d="M20,34 L20,29 C16,27 16,21 21,18 L19,15 L23,14 L26,17 C31,19 32,24 32,29 L32,34 Z"/></svg>`;
+const nav = (on)=>`<div class="nav">
+  <div class="${on==0?'on':''}"><span class="ic pk"></span>מארזים</div>
+  <div class="${on==1?'on':''}"><span class="ic"></span>אוסף</div>
+  <div class="${on==2?'on':''}"><span class="ic sq"></span>הסגל</div></div>`;
+
+function phone(inner,label){ return `<div class="wrap"><div class="phone"><div class="notch"></div><div class="screen">${inner}</div></div><div class="label">${label}</div></div>`; }
+
+// sort by rating desc
+players.sort((a,b)=>b.ratingStandard-a.ratingStandard);
+const topCards = players.slice(0,6);
+
+// 1. Login
+const login = phone(`
+  ${crest}
+  <div class="applogo">שחמט פנטזי – פ"ת</div>
+  <div class="tag">פנטזי שחמט · הפועל פתח תקווה</div>
+  <div style="color:#F4F6FB;font-size:18px;font-weight:700;margin-top:30px">התחברות</div>
+  <div class="field">שם משתמש</div>
+  <div class="field">סיסמה ••••••••</div>
+  <div class="btn primary">התחבר</div>
+  <div class="btn outline">אין לך חשבון? הירשם</div>
+`,'התחברות / הרשמה');
+
+// 2. Packs
+const packs = phone(`
+  <div style="color:#F4F6FB;font-size:21px;font-weight:700">שלום, נועם 👋</div>
+  <div class="tag" style="text-align:right">פנטזי שחמט · הפועל פתח תקווה</div>
+  <div class="stat" style="margin-top:16px"><span style="font-size:30px">🛡️</span><div><div class="muted" style="font-size:12px">הקלפים שלך</div><div class="big">11</div></div></div>
+  <div class="packhero"><div class="emoji">🎁</div><h3>מארז שבועי</h3><p>יש לך מארז חינם שמחכה!</p></div>
+  <div class="btn primary">פתח מארז שבועי חינם 🎁</div>
+  <div class="muted" style="font-size:11px;margin-top:14px">קיבלת 3 מארזי פתיחה חינם. מארז נוסף יחכה לך בכל שבוע.</div>
+  ${nav(0)}
+`,'מסך מארזים');
+
+// 3. Collection
+const collection = phone(`
+  <h2 class="head">האוסף שלי</h2>
+  <div class="grid">${topCards.map(card).join('')}</div>
+  ${nav(1)}
+`,'אוסף הקלפים (בהשראת Sorare)');
+
+// 4. Squad
+function scard(p){ const c=cardRating(p.ratingStandard),t=tier(c);
+  return `<div class="slot"><div class="scard ${t}"><span class="r" style="color:${t==='gold'?'#F2B705':t==='special'?'#B388FF':t==='silver'?'#C0C7D1':'#C9824E'}">${c}</span><div class="av">${avatar(p.gender)}</div><div class="nm">${p.name}</div></div></div>`; }
+const sq = players.slice(0,4);
+const avg = Math.round(sq.reduce((s,p)=>s+cardRating(p.ratingStandard),0)/sq.length);
+const squad = phone(`
+  <h2 class="head">הסגל שלי (5 שחקנים)</h2>
+  <div class="summary"><div><div class="muted" style="font-size:12px">דירוג ממוצע</div><div class="avg">${avg}</div></div><div class="cnt">4/5 שחקנים</div></div>
+  <div class="slotrow">${scard(sq[0])}${scard(sq[1])}${scard(sq[2])}</div>
+  <div class="slotrow">${scard(sq[3])}<div class="slot"><div class="empty"><div class="plus">+</div><div style="font-size:11px">הוסף שחקן</div></div></div><div class="slot"></div></div>
+  ${nav(2)}
+`,'בניית סגל של 5');
+
+// 5. Detail
+const d = players[0];
+const dc = cardRating(d.ratingStandard), dt = tier(dc);
+function gameRow(g){
+  const white = g.color==='W';
+  let cls='loss';
+  if((white&&g.result.startsWith('1-0'))||(!white&&g.result.startsWith('0-1'))) cls='win';
+  else if(g.result.includes('1/2')) cls='draw';
+  return `<div class="game"><div class="col"><div class="op">${white?'⚪':'⚫'} ${g.opponent}</div><div class="ev">${g.event}</div><div class="dt">${g.date}</div></div><div class="res ${cls}">${g.result.replace('1/2','½').replace('1/2','½')}</div></div>`;
+}
+const detail = phone(`
+  <div class="btn outline" style="width:80px;height:34px;margin-top:0;font-size:12px">חזרה</div>
+  <div class="dcard ${dt}" style="margin-top:10px">
+    <div class="dtop"><span class="rating">${dc}</span><span class="tier" style="margin-inline-start:auto">${dt.toUpperCase()}</span></div>
+    <div class="dav">${avatar(d.gender)}</div>
+    <div class="dname">${d.name}</div>
+    <div class="dclub">הפועל פתח תקווה</div>
+    <div class="stats4">
+      <div><div class="v">${d.ratingStandard}</div><div class="l">תקני</div></div>
+      <div><div class="v">${d.ratingRapid}</div><div class="l">מהיר</div></div>
+      <div><div class="v">${d.ratingBlitz}</div><div class="l">בזק</div></div>
+      <div><div class="v">${d.title||'—'}</div><div class="l">תואר</div></div>
+    </div>
+  </div>
+  <div class="gh">המשחקים השבוע</div>
+  ${d.games.map(gameRow).join('')}
+`,'כרטיס שחקן + משחקי השבוע');
+
+document.getElementById('stage').innerHTML = login + packs + collection + squad + detail;
+</script>
+</body>
+</html>

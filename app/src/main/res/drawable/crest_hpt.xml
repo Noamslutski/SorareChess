@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <!-- shield -->
+    <path
+        android:fillColor="#E2231A"
+        android:pathData="M24,3 L43,9 L43,26 C43,38 34,44 24,46 C14,44 5,38 5,26 L5,9 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M24,7 L39,12 L39,26 C39,35 32,40 24,42 C16,40 9,35 9,26 L9,12 Z" />
+    <!-- knight head (simple) -->
+    <path
+        android:fillColor="#E2231A"
+        android:pathData="M20,34 L20,29 C16,27 16,21 21,18 L19,15 L23,14 L26,17 C31,19 32,24 32,29 L32,34 Z" />
+</vector>

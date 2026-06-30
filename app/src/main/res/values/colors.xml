@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_dark">#0E1117</color>
+    <color name="bg_surface">#171C26</color>
+    <color name="bg_surface2">#212838</color>
+    <color name="text_primary">#F4F6FB</color>
+    <color name="text_secondary">#9AA4B6</color>
+    <color name="accent">#3DDC97</color>
+    <color name="accent_dark">#1F7A5A</color>
+    <color name="hpt_red">#E2231A</color>
+
+    <color name="tier_bronze">#C9824E</color>
+    <color name="tier_silver">#C0C7D1</color>
+    <color name="tier_gold">#F2B705</color>
+    <color name="tier_special">#7C4DFF</color>
+
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+</resources>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">שחמט פנטזי – פ\"ת</string>
+
+    <!-- Auth -->
+    <string name="login_title">התחברות</string>
+    <string name="register_title">הרשמה</string>
+    <string name="username">שם משתמש</string>
+    <string name="email">דוא\"ל</string>
+    <string name="password">סיסמה</string>
+    <string name="confirm_password">אימות סיסמה</string>
+    <string name="login">התחבר</string>
+    <string name="register">הרשמה</string>
+    <string name="no_account">אין לך חשבון? הירשם</string>
+    <string name="have_account">כבר רשום? התחבר</string>
+    <string name="tagline">פנטזי שחמט · הפועל פתח תקווה</string>
+
+    <!-- Navigation -->
+    <string name="nav_packs">מארזים</string>
+    <string name="nav_collection">אוסף</string>
+    <string name="nav_squad">הסגל</string>
+
+    <!-- Packs -->
+    <string name="greeting_user">שלום, %1$s 👋</string>
+    <string name="your_cards">הקלפים שלך</string>
+    <string name="open_weekly">פתח מארז שבועי חינם 🎁</string>
+
+    <!-- Collection -->
+    <string name="collection_title">האוסף שלי</string>
+    <string name="empty_collection">עדיין אין קלפים. פתח מארז כדי להתחיל!</string>
+
+    <!-- Squad -->
+    <string name="squad_title">הסגל שלי (5 שחקנים)</string>
+    <string name="squad_pick_title">בחר שחקן למשבצת</string>
+    <string name="add_player">+ הוסף שחקן</string>
+    <string name="avg_rating">דירוג ממוצע</string>
+
+    <!-- Detail -->
+    <string name="games_this_week">המשחקים השבוע</string>
+    <string name="recent_games">משחקים אחרונים</string>
+    <string name="no_games">אין משחקים רשומים לשבוע זה</string>
+    <string name="rating_standard">תקני</string>
+    <string name="rating_rapid">מהיר</string>
+    <string name="rating_blitz">בזק</string>
+    <string name="back">חזרה</string>
+
+    <!-- Pack open -->
+    <string name="pack_revealed">פתחת %1$d קלפים!</string>
+    <string name="continue_btn">המשך</string>
+</resources>
