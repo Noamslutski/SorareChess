@@ -66,11 +66,12 @@ public class SquadFragment extends Fragment {
                 if (p != null) { totalRating += p.cardRating(); count++; }
             }
             final int avg = count == 0 ? 0 : Math.round(totalRating / (float) count);
+            final int filledCount = count;
             AppExecutors.main(() -> {
                 if (b == null) return;
                 for (int i = 0; i < slots.length; i++) bindSlot(i, filled[i]);
                 b.squadRating.setText(String.valueOf(avg));
-                b.squadFilled.setText(String.format(Locale.US, "%d/5 שחקנים", count));
+                b.squadFilled.setText(String.format(Locale.US, "%d/5 שחקנים", filledCount));
             });
         });
     }
